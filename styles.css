@@ -1,0 +1,168 @@
+:root {
+  --bg: #e8eef4;
+  --bg-accent: #d4e2f0;
+  --surface: #f7fafc;
+  --ink: #1a2332;
+  --muted: #5a6a7a;
+  --line: #2c3e50;
+  --x: #1b6b93;
+  --o: #c45c26;
+  --win: #2d8a4e;
+  --win-bg: rgba(45, 138, 78, 0.15);
+  --shadow: 0 12px 40px rgba(26, 35, 50, 0.12);
+  --radius: 12px;
+  --font: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, var(--bg-accent), transparent),
+    radial-gradient(ellipse 70% 50% at 90% 80%, #c5d8e8, transparent),
+    var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.app {
+  width: min(100%, 360px);
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.status {
+  margin: 0 0 1.25rem;
+  min-height: 1.5em;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.status.is-win {
+  color: var(--win);
+}
+
+.status.is-loss {
+  color: var(--o);
+}
+
+.status.is-draw {
+  color: var(--muted);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 12px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.25rem;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  font-weight: 700;
+  font-family: inherit;
+  color: transparent;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: #eef4f8;
+  transform: scale(1.02);
+}
+
+.cell:focus-visible {
+  outline: 3px solid var(--x);
+  outline-offset: 2px;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.mark-x {
+  color: var(--x);
+}
+
+.cell.mark-o {
+  color: var(--o);
+}
+
+.cell.win {
+  background: var(--win-bg);
+  border-color: var(--win);
+  color: var(--win);
+}
+
+.cell.pop {
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.reset {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--line);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.reset:hover {
+  background: #1a2836;
+  transform: translateY(-1px);
+}
+
+.reset:focus-visible {
+  outline: 3px solid var(--x);
+  outline-offset: 2px;
+}

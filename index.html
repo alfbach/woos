@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TicTacToe — Spieler vs. Computer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1 class="title">TicTacToe</h1>
+      <p class="subtitle">Du bist X — der Computer ist O</p>
+      <p id="status" class="status" role="status" aria-live="polite">Dein Zug</p>
+
+      <div
+        id="board"
+        class="board"
+        role="grid"
+        aria-label="TicTacToe-Brett"
+      >
+        <button class="cell" type="button" role="gridcell" data-index="0" aria-label="Feld 1"></button>
+        <button class="cell" type="button" role="gridcell" data-index="1" aria-label="Feld 2"></button>
+        <button class="cell" type="button" role="gridcell" data-index="2" aria-label="Feld 3"></button>
+        <button class="cell" type="button" role="gridcell" data-index="3" aria-label="Feld 4"></button>
+        <button class="cell" type="button" role="gridcell" data-index="4" aria-label="Feld 5"></button>
+        <button class="cell" type="button" role="gridcell" data-index="5" aria-label="Feld 6"></button>
+        <button class="cell" type="button" role="gridcell" data-index="6" aria-label="Feld 7"></button>
+        <button class="cell" type="button" role="gridcell" data-index="7" aria-label="Feld 8"></button>
+        <button class="cell" type="button" role="gridcell" data-index="8" aria-label="Feld 9"></button>
+      </div>
+
+      <button id="reset" class="reset" type="button">Neues Spiel</button>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
