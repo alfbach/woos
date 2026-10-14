@@ -18,10 +18,17 @@ Dann die angezeigte URL im Browser öffnen (meist `http://localhost:3000`).
 
 ```bash
 docker build -t tictactoe .
-docker run --rm -p 8080:80 tictactoe
+docker run --rm -p 8080:8080 tictactoe
 ```
 
 Spiel öffnen unter `http://localhost:8080`.
+
+**Option D:** OpenShift
+
+```bash
+oc apply -f openshift/deployment.yaml -n <namespace>
+oc get route tictactoe -n <namespace>
+```
 
 ## Steuern
 
