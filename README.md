@@ -25,7 +25,11 @@ Spiel öffnen unter `http://localhost:8080`.
 
 **Option D:** OpenShift
 
+Image muss für `linux/amd64` gebaut sein (Cluster-Architektur):
+
 ```bash
+podman build --platform linux/amd64 --format docker -t quay.io/abach/tictactoe:latest .
+podman push quay.io/abach/tictactoe:latest
 oc apply -f openshift/deployment.yaml -n <namespace>
 oc get route tictactoe -n <namespace>
 ```
